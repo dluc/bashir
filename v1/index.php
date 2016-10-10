@@ -15,13 +15,13 @@ $header = array(
     "Bashir - $vmajor.$vminor",
     "Maintainer : Devis Lucato http://lucato.it",
     "Source     : https://github.com/dluc/bashir",
-    "Setup      : curl -s https://dev.ai/bashir/$vmajor|bash && . ~/.bashir",
+    "Setup      : curl -s https://dev.ai/bashir/$vmajor |bash && . ~/.bashir",
     "",
     "Installed on " . date("r"),
     ""
 );
 
-foreach ($header as $v) echo "## " . str_pad($v, 73) . " ##\n"; 
+foreach ($header as $v) echo "## " . str_pad($v, 74) . " ##\n"; 
 ?>
 
 bashir_enable() {
@@ -60,7 +60,7 @@ bashir_do() {
     alias mkdir='mkdir -p'
 
     alias bashirshow='curl -s https://dev.ai/bashir/<?php echo $vmajor; ?>'
-    alias bashirupgrade='curl -s https://dev.ai/bashir/<?php echo $vmajor; ?>|bash && . ~/.bashir'
+    alias bashirupgrade='curl -s https://dev.ai/bashir/<?php echo $vmajor; ?> |bash && . ~/.bashir'
 
     export HISTCONTROL=ignorespace:ignoredups
     export HISTTIMEFORMAT='%F %T '
