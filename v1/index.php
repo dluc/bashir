@@ -56,7 +56,7 @@ alias df='df -h'
 alias nano='nano -cESm --tabsize=4'
 alias mkdir='mkdir -p'
 
-alias bashirshow='curl -s http://dev.ai/bashir/'
+alias bashirshow='curl -s http://dev.ai/bashir/<?php echo $vmajor; ?>'
 alias bashirupgrade='curl -s http://dev.ai/bashir/<?php echo $vmajor; ?> > ~/.bashir && . ~/.bashir'
 
 export HISTCONTROL=ignorespace:ignoredups
