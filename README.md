@@ -1,17 +1,20 @@
 # Bashir
 
-Bashir (the one who bring good news) is a setup script to initialize Bash
-environments.
+Bashir ("the one who bring good news") is a setup script to initialize Bash
+environments. The script initializes commands aliases, the shell prompt, 
+path, and command line commands history.
 
-# Setup
+The main goal is to provide a quick way to setup Bash shells, running a 
+simple command, for instance while creating a VM, a container or during the 
+first access into a system. A Bashir setup endpoing is available and
+accessible to curl/wget.
 
-An instance of Bashir is available at 
-[http://dev.ai/bashir/](http://dev.ai/bashir/).
+# Quick setup
 
 This command will setup your Linux shell:
 
 ```shell 
-curl -s http://dev.ai/bashir/ > ~/.bashir && . ~/.bashir
+curl -s http://dev.ai/bashir/v1 > ~/.bashir && . ~/.bashir
 ```
 
 # Docker
@@ -29,7 +32,7 @@ LABEL Description="Debian Jessie with Bashir"
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install curl && \
-  curl -s http://dev.ai/bashir/ > ~/.bashir && . ~/.bashir && \
+  curl -s http://dev.ai/bashir/v1 > ~/.bashir && . ~/.bashir && \
   apt-get autoclean && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/bash"]

@@ -1,18 +1,28 @@
 <?php
-$version = "2016-10-09";
+$vmajor = "v1";
+$vminor = "2016-10-09";
+
+date_default_timezone_set("UTC");
 
 header("Content-Type: text/plain");
-$now = date("c");
+header("Last-Modified: " . date("r", strtotime($vminor)));
+header("Expires: " . date("r", time() + 86400));
+header("Cache-Control: public, max-age=86400");
+header("Vary: None");
+
+$header = array(
+    "",
+    "Bashir - $vmajor.$vminor",
+    "Maintainer : Devis Lucato http://lucato.it",
+    "Source     : https://github.com/dluc/bashir",
+    "Setup      : curl -s http://dev.ai/bashir/$vmajor > ~/.bashir && . ~/.bashir",
+    "",
+    "Installed on " . date("r"),
+    ""
+);
+
+foreach ($header as $v) echo "## " . str_pad($v, 73) . " ##\n"; 
 ?>
-##
-## Bashir - v<?php echo $version; ?>
-
-## by Devis Lucato http://lucato.it
-##
-## Setup     : curl -s http://dev.ai/bashir/ > ~/.bashir && . ~/.bashir
-## Installed : <?php echo $now; ?>
-
-##
 
 if [ -f ~/.bashrc ]; then
     BASHCFG=~/.bashrc
@@ -47,7 +57,7 @@ alias nano='nano -cESm --tabsize=4'
 alias mkdir='mkdir -p'
 
 alias bashirshow='curl -s http://dev.ai/bashir/'
-alias bashirupgrade='curl -s http://dev.ai/bashir/ > ~/.bashir && . ~/.bashir'
+alias bashirupgrade='curl -s http://dev.ai/bashir/<?php echo $vmajor; ?> > ~/.bashir && . ~/.bashir'
 
 export HISTCONTROL=ignorespace:ignoredups
 export HISTTIMEFORMAT='%F %T '
