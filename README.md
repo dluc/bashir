@@ -14,13 +14,13 @@ accessible to curl/wget.
 This command will install Bashir in your Linux shell:
 
 ```shell 
-curl -s http://dev.ai/bashir/v1|bash
+curl -s https://dev.ai/bashir/v1|bash
 ```
 
 This commands installs and runs Bashir without needing to reload the shell:
 
 ```shell 
-curl -s http://dev.ai/bashir/v1|bash && . ~/.bashir
+curl -s https://dev.ai/bashir/v1|bash && . ~/.bashir
 ```
 
 # Docker
@@ -38,7 +38,7 @@ LABEL Description="Debian Jessie with Bashir"
 RUN \
   apt-get update && \
   apt-get -y --force-yes --no-install-recommends install curl && \
-  curl -s http://dev.ai/bashir/v1|bash && \
+  curl -s https://dev.ai/bashir/v1|bash && \
   apt-get autoclean && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/bash"]

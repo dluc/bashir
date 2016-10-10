@@ -15,7 +15,7 @@ $header = array(
     "Bashir - $vmajor.$vminor",
     "Maintainer : Devis Lucato http://lucato.it",
     "Source     : https://github.com/dluc/bashir",
-    "Setup      : curl -s http://dev.ai/bashir/$vmajor|bash && . ~/.bashir",
+    "Setup      : curl -s https://dev.ai/bashir/$vmajor|bash && . ~/.bashir",
     "",
     "Installed on " . date("r"),
     ""
@@ -26,7 +26,7 @@ foreach ($header as $v) echo "## " . str_pad($v, 73) . " ##\n";
 
 bashir_enable() {
     if [ ! -f ~/.bashir ]; then
-        curl -s http://dev.ai/bashir/<?php echo $vmajor; ?> > ~/.bashir
+        curl -s https://dev.ai/bashir/<?php echo $vmajor; ?> > ~/.bashir
     fi
 
     if [ -f ~/.bashrc ]; then
@@ -59,8 +59,8 @@ bashir_do() {
     alias nano='nano -cESm --tabsize=4'
     alias mkdir='mkdir -p'
 
-    alias bashirshow='curl -s http://dev.ai/bashir/<?php echo $vmajor; ?>'
-    alias bashirupgrade='curl -s http://dev.ai/bashir/<?php echo $vmajor; ?>|bash && . ~/.bashir'
+    alias bashirshow='curl -s https://dev.ai/bashir/<?php echo $vmajor; ?>'
+    alias bashirupgrade='curl -s https://dev.ai/bashir/<?php echo $vmajor; ?>|bash && . ~/.bashir'
 
     export HISTCONTROL=ignorespace:ignoredups
     export HISTTIMEFORMAT='%F %T '
